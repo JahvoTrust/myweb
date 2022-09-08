@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 
+import CardList from './component/CardList';
+
 function App() {
 
   const [getResult, setGetResult] = useState(null);
@@ -55,21 +57,22 @@ function App() {
       </Navbar>
       <Row xs={1} md={3} className="g-4">
         {getResult && getResult.map((r) =>
-          <Col key={r.uuid}>
-            <Card >
-              <Card.Img variant="top" src={r.displayIcon} />
-              <Card.Body>
-                <Card.Title>{r.displayName}</Card.Title>
-                <Card.Text>
-                  {r.category}
+        <CardList list={r} />
+          // <Col key={r.uuid}>
+          //   <Card >
+          //     <Card.Img variant="top" src={r.displayIcon} />
+          //     <Card.Body>
+          //       <Card.Title>{r.displayName}</Card.Title>
+          //       <Card.Text>
+          //         {r.category}
 
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
-            </Card>
-          </Col>
+          //       </Card.Text>
+          //     </Card.Body>
+          //     <Card.Footer>
+          //       <small className="text-muted">Last updated 3 mins ago</small>
+          //     </Card.Footer>
+          //   </Card>
+          // </Col>
         )
         }
       </Row>
