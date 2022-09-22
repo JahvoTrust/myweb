@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
-
 import CardList from './component/CardList';
 
 function App() {
