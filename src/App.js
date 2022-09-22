@@ -10,7 +10,7 @@ import CardList from './component/CardList';
 function App() {
 
   const [getResult, setGetResult] = useState(null);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getData() {
     try {
