@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 
@@ -12,7 +10,7 @@ import CardList from './component/CardList';
 function App() {
 
   const [getResult, setGetResult] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   async function getData() {
     try {
