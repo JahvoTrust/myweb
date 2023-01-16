@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import CardList from './component/CardList';
+import Layout from './Layout';
 
 function App() {
 
@@ -37,8 +38,9 @@ function App() {
 
 
   return (
-    <Container>
-      <Navbar bg="dark" variant="dark" >
+    <Layout>
+      <Container>
+        {/* <Navbar bg="dark" variant="dark" >
         <Container>
           <Navbar.Brand href="#home">
             <img
@@ -51,29 +53,30 @@ function App() {
             React Bootstrap
           </Navbar.Brand>
         </Container>
-      </Navbar>
-      <Row xs={1} md={3} className="g-4">
-        {getResult && getResult.map((r) =>
-        <CardList list={r} />
-          // <Col key={r.uuid}>
-          //   <Card >
-          //     <Card.Img variant="top" src={r.displayIcon} />
-          //     <Card.Body>
-          //       <Card.Title>{r.displayName}</Card.Title>
-          //       <Card.Text>
-          //         {r.category}
+      </Navbar> */}
+        <Row xs={1} md={3} className="g-4">
+          {getResult && getResult.map((r) =>
+            <CardList list={r} />
+            // <Col key={r.uuid}>
+            //   <Card >
+            //     <Card.Img variant="top" src={r.displayIcon} />
+            //     <Card.Body>
+            //       <Card.Title>{r.displayName}</Card.Title>
+            //       <Card.Text>
+            //         {r.category}
 
-          //       </Card.Text>
-          //     </Card.Body>
-          //     <Card.Footer>
-          //       <small className="text-muted">Last updated 3 mins ago</small>
-          //     </Card.Footer>
-          //   </Card>
-          // </Col>
-        )
-        }
-      </Row>
-    </Container>
+            //       </Card.Text>
+            //     </Card.Body>
+            //     <Card.Footer>
+            //       <small className="text-muted">Last updated 3 mins ago</small>
+            //     </Card.Footer>
+            //   </Card>
+            // </Col>
+          )
+          }
+        </Row>
+      </Container>
+    </Layout>
   );
 }
 
