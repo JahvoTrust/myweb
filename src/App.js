@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import CardList from './component/CardList';
 import Layout from './Layout';
+import Profile from './component/Profile';
+import Carddetail from './component/Carddetail';
 
-function App() {
-
+const MainContent = () => {
   const [getResult, setGetResult] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,25 +40,10 @@ function App() {
       console.log(getResult)
   }, [getResult])
 
-
   return (
-    <Layout>
-      <Container>
-        {/* <Navbar bg="dark" variant="dark" >
-        <Container>
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src="/logo192.png"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{' '}
-            React Bootstrap
-          </Navbar.Brand>
-        </Container>
-      </Navbar> */}
-        <Row xs={1} md={3} className="g-4">
+    <Container>
+      {/* <ProfileContent /> */}
+      <Row xs={1} md={3} className="g-4">
           {getResult && getResult.map((r) =>
             <CardList list={r} />
             // <Col key={r.uuid}>
@@ -75,7 +64,25 @@ function App() {
           )
           }
         </Row>
-      </Container>
+
+    </Container>
+  );
+};
+
+
+function App() {
+
+  
+
+  return (
+    <Layout>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainContent />}/>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/carddetail/:id" element={<Carddetail />} />
+        </Routes>
+      </BrowserRouter>
     </Layout>
   );
 }
