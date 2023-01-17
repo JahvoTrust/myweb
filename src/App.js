@@ -71,9 +71,6 @@ const MainContent = () => {
 
 
 function App() {
-
-  
-
   return (
     <Layout>
       <BrowserRouter>
