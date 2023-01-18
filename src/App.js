@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
@@ -41,8 +42,10 @@ const MainContent = () => {
   }, [getResult])
 
   return (
+ 
     <Container>
       {/* <ProfileContent /> */}
+      <h2 className="text-center">valorant weapons</h2>
       <Row xs={1} md={3} className="g-4">
           {getResult && getResult.map((r) =>
             <CardList list={r} />
@@ -66,6 +69,7 @@ const MainContent = () => {
         </Row>
 
     </Container>
+
   );
 };
 
