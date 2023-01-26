@@ -12,8 +12,25 @@ import CardList from './component/CardList';
 import Layout from './Layout';
 import Profile from './component/Profile';
 import Carddetail from './component/Carddetail';
+import SignUpPage from './component/SignUpPage'
 
 const MainContent = () => {
+//   const handleCallbackResponse = async (response) => {
+//     // const result = await postGoogleLogin(res.credential);
+//      //콜백 함수
+//      console.log("Encoded JWT ID token: " + response.credential );
+//    };
+//  useEffect(() =>{
+//      window.google.accounts.id.initialize({
+//      client_id: "751801305438-9ibf1lsdolcc7p39h65aillbekic1ljr.apps.googleusercontent.com",
+//      calllback: handleCallbackResponse
+//    });
+   
+//    window.google.accounts.id.renderButton(
+//      document.getElementById("signInDiv"),
+//      { theme: "oultline", size: "large" }
+//    );
+//  },[])
   const [getResult, setGetResult] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,6 +61,7 @@ const MainContent = () => {
   return (
  
     <Container>
+      <div id='signInDiv'></div>
       {/* <ProfileContent /> */}
       <h2 className="text-center">valorant weapons</h2>
       <Row xs={1} md={3} className="g-4">
@@ -75,11 +93,19 @@ const MainContent = () => {
 
 
 function App() {
+  const [user,setUser] = useState({
+    email: "",
+    name: "",
+    picture: ""
+  });
+
   return (
-    <Layout>
-      <BrowserRouter>
+    <Layout user={user} setUser={setUser}>
+
+      <BrowserRouter >
         <Routes>
           <Route path="/" element={<MainContent />}/>
+          <Route path="/signup" element={<SignUpPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/carddetail/:id" element={<Carddetail />} />
         </Routes>
